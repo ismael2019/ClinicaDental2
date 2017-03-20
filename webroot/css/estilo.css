@@ -31,6 +31,99 @@
 border: 2px solid #000000;
 
 }
+#titulotabla{
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 500%;
+  font-weight: 900;
+  text-shadow: 6px 2px 3px #808080;
+}
+table{
 
+ border: 2px solid #000000;
+}
 
+#titulosugerencia{
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 250%;
+  text-shadow: 6px 2px 3px #808080;
+}
+#sugerencia2{
+  border: 2px solid #FFFFFF;
+  border-radius: 10px;
+  background: #A3A3A3;
+  color: #000000;
 
+}
+#titulosugerenciau{
+  font-family: "Times New Roman", Times, serif;
+  font-size: 400%;
+  text-shadow: 6px 2px 3px #808080;
+}
+#formulario{
+  background: #F5F5F5;
+  padding: 2%;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  opacity: 0.7;
+}
+#formulario:hover{
+  opacity: 1;
+}
+
+.dropdown-menu{
+  background: #000000;
+
+}
+.dropdown-menu li a {
+      color: #00A2ED;
+      }
+.modal-content{
+  background: #000000;
+  color: #FFFFFF;
+  font-family:"Times New Roman", Times, serif;
+  }
+.close{
+  color: #CC0000;
+  font-size: 200%;
+}
+
+.close:hover{
+  color: #CC0000;
+}
+
+#tituloLogin{
+  color: #FFFFFF;
+  font-family: Impact, Charcoal, sans-serif;
+}
+.breadcrumb{
+
+    width: 70%;
+    background: #363636;
+}
+#tituloPacientes{
+  font-family: "Times New Roman", Times, serif;
+}
+#cabezeraTabla{
+  color: #FFFFFF;
+  background: #141414;
+  font-size: 90%;
+}
+#cuerpoTabla{
+  color: #000000;
+  background: #00C0FF;
+  font-size: 85%;
+}
+
+.formulariopacientes{
+    color: #FFFFFF;
+    background: #171717;
+    border-radius: 2%;
+    padding: 1%;
+}
+.mensajeLogin{
+    color: #CC0000;
+    background: #CC0000;
+   
+
+}

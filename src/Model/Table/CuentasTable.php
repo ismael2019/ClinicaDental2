@@ -1,18 +1,18 @@
 <?php
 namespace App\Model\Table;
 
-use App\Model\Entity\Patient;
+use App\Model\Entity\Cuenta;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Patients Model
+ * Cuentas Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Users
+ * @property \Cake\ORM\Association\BelongsTo $Tratamientos
  */
-class PatientsTable extends Table
+class CuentasTable extends Table
 {
 
     /**
@@ -25,14 +25,14 @@ class PatientsTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('patients');
-        $this->displayField('name');
+        $this->table('cuentas');
+        $this->displayField('id');
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Users', [
-            'foreignKey' => 'user_id',
+        $this->belongsTo('Tratamientos', [
+            'foreignKey' => 'tratamiento_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -50,33 +50,19 @@ class PatientsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->numeric('costo_total')
+            ->requirePresence('costo_total', 'create')
+            ->notEmpty('costo_total');
 
         $validator
-            ->requirePresence('last_name', 'create')
-            ->notEmpty('last_name');
+            ->numeric('cancelado')
+            ->requirePresence('cancelado', 'create')
+            ->notEmpty('cancelado');
 
         $validator
-            ->requirePresence('c_i', 'create')
-            ->notEmpty('c_i');
-
-        $validator
-            ->requirePresence('sex', 'create')
-            ->notEmpty('sex');
-
-        $validator
-            ->requirePresence('phone', 'create')
-            ->notEmpty('phone');
-
-        $validator
-            ->email('email')
-            ->requirePresence('email', 'create')
-            ->notEmpty('email');
-
-        $validator
-            ->requirePresence('address', 'create')
-            ->notEmpty('address');
+            ->numeric('saldo_por_pagar')
+            ->requirePresence('saldo_por_pagar', 'create')
+            ->notEmpty('saldo_por_pagar');
 
         return $validator;
     }
@@ -90,8 +76,7 @@ class PatientsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['email']));
-        $rules->add($rules->existsIn(['user_id'], 'Users'));
+        $rules->add($rules->existsIn(['tratamiento_id'], 'Tratamientos'));
         return $rules;
     }
 }

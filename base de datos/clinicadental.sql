@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-04-2016 a las 03:33:13
+-- Tiempo de generación: 31-05-2016 a las 21:29:38
 -- Versión del servidor: 10.1.10-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -43,6 +43,31 @@ CREATE TABLE `patients` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `suggestions`
+--
+
+CREATE TABLE `suggestions` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `last_name` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `phone` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `suggestion` text COLLATE utf8_spanish_ci NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `suggestions`
+--
+
+INSERT INTO `suggestions` (`id`, `username`, `last_name`, `email`, `phone`, `suggestion`, `created`, `modified`) VALUES
+(1, 'Usuario', 'Apellido Usuario', 'usuario@hotmail.com', '72217540', 'Sugerencia1', '2016-05-03 00:06:26', '2016-05-03 00:06:26'),
+(2, 'Mario', 'mario ', 'mario@hotmail.com', '751489', 'sugerencia2', '2016-05-10 14:03:58', '2016-05-10 14:03:58');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `users`
 --
 
@@ -75,6 +100,12 @@ ALTER TABLE `patients`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `suggestions`
+--
+ALTER TABLE `suggestions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -89,6 +120,11 @@ ALTER TABLE `users`
 --
 ALTER TABLE `patients`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `suggestions`
+--
+ALTER TABLE `suggestions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --

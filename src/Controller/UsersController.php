@@ -16,6 +16,9 @@ class UsersController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
+     public $paginate = [
+       'limit' => 2
+    ];
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
@@ -123,8 +126,10 @@ class UsersController extends AppController
         if ($user) {
             $this->Auth->setUser($user);
             return $this->redirect($this->Auth->redirectUrl());
+            $this->Flash->mens('Nombre o contraseña Incorrecta verifique');
         }
-        $this->Flash->error(__('Invalid username or password, try again'));
+       $this->Flash->mens('Nombre o contraseña Incorrecta verifique');
+       $this->Flash->mensajemenu('Verifique los datos ingresados');
     }
     }
 

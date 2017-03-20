@@ -4,22 +4,16 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Patient Entity.
+ * Receta Entity.
  *
  * @property int $id
- * @property string $name
- * @property string $last_name
- * @property string $c_i
- * @property string $sex
- * @property string $phone
- * @property string $email
- * @property string $address
+ * @property int $paciente_id
+ * @property \App\Model\Entity\Paciente $paciente
+ * @property string $detalle_de_la_receta
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
- * @property int $user_id
- * @property \App\Model\Entity\User $user
  */
-class Patient extends Entity
+class Receta extends Entity
 {
 
     /**

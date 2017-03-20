@@ -21,7 +21,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">CLINICA DENTAL Y DE ESPECIALIDADES </a>
+            <?= $this->Html->image('logooficialpng.png',['class'=>'img-responsive'])?>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -54,27 +54,45 @@
             </li>
           </ul>
         </div><!--/.nav-collapse -->
+
       </div>
+        
+      
     </div>
+    
+ <!-- script-for-menu -->
+                             <script>
+                               $( "span.menu" ).click(function() {
+                                 $( "ul.nav1" ).slideToggle( 300, function() {
+                                 // Animation complete.
+                                  });
+                                 });
+                            </script>
+                        <!-- /script-for-menu -->
+
 <div class="modal fade" id="myModal50" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h2>LOGIN</h2>
+        <center><h2 id="tituloLogin">Ingrese Sus Datos para Iniciar Sesion</h2></center>
       </div>
       <div class="modal-body">
-       <?= $this->Flash->render('auth') ?>
-					<?= $this->Form->create('User', ['class' => 'navbar-form navbar-lefth']) ?>
-  					<div class="form-group">
+        <div class="mensajeLogin">
+            <?= $this->Flash->render() ?>
+    </div>
+        		<?= $this->Form->create('User', ['class' => 'navbar-form navbar-lefth']) ?>
+  					<Center><div class="form-group">
     				<?= $this->Form->input('username',['class' => 'form-control']) ?>
-  					</div>
+  					</div></Center> <br>
+            <center>
   							<div class="form-group">
     				<?= $this->Form->input('password',['class' => 'form-control']) ?>
-  						</div>
+  						</div> </center> <br>
+              <center>
    					<div class="form-group">
-    					<?= $this->Form->button(__('Login'),['class'=>'btn btn-primary']); ?>
-  					</div>
+    					<?= $this->Form->button(__('Inicar Sesion'),['class'=>'btn btn-primary']); ?>
+  					</div> </center>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -672,7 +690,9 @@
     	<div class="container">
             <div class="row">
             	<div class="col-sm-6 col-lg-6">
-            		<p>Puede Encontrarnos en la Avenida Atahuallpa entre Felix Lopez y Hermogenes Slalazar Camacho Acera Oeste</p>
+            		<p>Puede Encontrarnos en la Avenida Atahuallpa entre Felix Lopez y Hermogenes Slalazar Camacho Acera Oeste o puede llamarnos a los siguientes telefonos 
+                   72217540-4292658.
+                </p>
             	</div>
                 <div class="col-sm-6 col-lg-6">
                   <iframe id="mapa" class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1573.9839710277554!2d-66.16043921226218!3d-17.360074440658614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2sbo!4v1461608665754" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -690,4 +710,4 @@
 </section>
 
 
-<?= $this->Html->script(['jquery','bootstrap.min'])?>
+<?= $this->Html->script(['jquery','bootstrap.min','pnotify.custom.min'])?>

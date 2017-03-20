@@ -13,7 +13,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'Clinica dental y de especialidades';
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +26,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css(['bootstrap','bootstrap.min','bootstrap-theme','style','default','component','estilo','font-awesome']) ?>
+    <?= $this->Html->css(['bootstrap.min','bootstrap-theme','style','default','component','estilo','font-awesome','pnotify.custom.min']) ?>
     
 
 
@@ -35,6 +35,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('css') ?>
 
 </head>
+
 <body>
 
     
@@ -47,37 +48,52 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Clinica Dental y de Especialidades</a>
+            <?= $this->Html->image('logooficialpng.png',['class'=>'img-responsive'])?>
+            
+          
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Tratamientos</a></li>
-            <li><a href="#">Mision y Vision</a></li>
-            <li><a href="#">Galeria</a></li>
-            <?php
+          <?php
             if ($current_user['role'] == 'dentista')
         {
         ?>
-            <li role="presentation"><?= $this->Html->link('Sugerencias',['controller'=>'suggestions','action'=>'index'])?></li>
-
+            <li><?= $this->Html->link('Pacientes',['controller'=>'pacientes','action'=>'index'])?></li>
+            <li><?= $this->Html->link('Recetas Medicas',['controller'=>'recetas','action'=>'index'])?></li>
+            <li role="presentation"><?= $this->Html->link('Buson de Sugerencias',['controller'=>'suggestions','action'=>'index'])?></li>
+            <li><a href="#">Trabajos Protesis</a></li>
+            <li><a href="#">Citas Pacientes</a></li>
         <?php } ?>
-            <li><a href="#">Contactenos</a></li>
+
+             <?php
+            if ($current_user['role'] == 'protesista')
+        {
+        ?>
+            <li><a href="#">Trabajos</a></li>
+            <li><a href="#">Pacientes</a></li>
+            <li><a href="#">Mensajes</a></li>
+        <?php } ?>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+           
             <li role="presentation"><?= $this->Html->link('Cerrar Sesion',['controller'=>'users','action'=>'logout'])?></li>
           </ul>
+
         </div><!--/.nav-collapse -->
       </div>
+      <?= $this->Flash->render() ?>
     </div>
 
 
 
-    <?= $this->Flash->render() ?>
+    
     <div class="container clearfix">
+
         <?= $this->fetch('content') ?>
     </div>
 
 
-   <?= $this->Html->script(['jquery','bootstrap.min','cbpBGSlideshow.min','jquery.imagesloaded.min','modernizr.custom'])?>
+   <?= $this->Html->script(['jquery','bootstrap.min','cbpBGSlideshow.min','jquery.imagesloaded.min','modernizr.custom','pnotify.custom.min'])?>
    
    <script>
             $(function() {

@@ -1,27 +1,36 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $suggestion->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $suggestion->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Suggestions'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
-<div class="suggestions form large-9 medium-8 columns content">
-    <?= $this->Form->create($suggestion) ?>
-    <fieldset>
-        <legend><?= __('Edit Suggestion') ?></legend>
+<div class="container">
+            
+            <div class="main">
+                <ul id="cbp-bislideshow" class="cbp-bislideshow">
+                    <li><?= $this->Html->image('1.jpg',['class'=>'img-responsive'])?></li>
+                    <li><?= $this->Html->image('3.jpg',['class'=>'img-responsive'])?></li>
+                    <li><?= $this->Html->image('7.jpg',['class'=>'img-responsive'])?></li>
+                    <li><?= $this->Html->image('11.jpg',['class'=>'img-responsive'])?></li>
+             </ul>
+                
+            </div>
+        </div>
+
+
+
+<center><h1 id="titulotabla">FORMULARIO PARA EDITAR LA SUGERENCIA</h1></center>
+<BR>
+<div id="formulario">
+    <?= $this->Form->create($suggestion,['class'=>'form-group has-success']) ?>
+   
+        
+       
         <?php
-            echo $this->Form->input('username');
-            echo $this->Form->input('last_name');
-            echo $this->Form->input('email');
-            echo $this->Form->input('phone');
-            echo $this->Form->input('suggestion');
+            echo $this->Form->input('username',['class'=>'form-control']);
+            echo $this->Form->input('last_name',['class'=>'form-control']);
+            echo $this->Form->input('email',['class'=>'form-control']);
+            echo $this->Form->input('phone',['class'=>'form-control']);
+            echo $this->Form->input('suggestion',['class'=>'form-control']);
         ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+        
+   <br>
+   <center> <?= $this->Form->button(__('Cambiar'),['class'=>'btn btn-primary']) ?> </center>
     <?= $this->Form->end() ?>
 </div>
+<br>
+<br>

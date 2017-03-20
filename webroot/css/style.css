@@ -38,7 +38,7 @@ p {
 
 
 a {
-    color: #d6ee18;
+    color: #00A2ED;
     word-wrap: break-word;
     -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
     -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
@@ -49,7 +49,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #b7cb1b;
+    color: #00A2ED;
     text-decoration: none;
     outline: 0;
 }
@@ -63,7 +63,7 @@ a:after {
     transition: color 0.1s ease-in, background 0.1s ease-in;
 }
 .navbar-inverse .navbar-nav > li > a {
-    color: #c6d550;
+    color: #00A2ED;
 }
 
 .alignleft {

@@ -16,6 +16,10 @@ class SuggestionsController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
+    public $paginate = [
+        'limit' => 3
+        
+    ];
     public function index()
     {
         $suggestions = $this->paginate($this->Suggestions);
@@ -57,10 +61,10 @@ class SuggestionsController extends AppController
         if ($this->request->is('post')) {
             $suggestion = $this->Suggestions->patchEntity($suggestion, $this->request->data);
             if ($this->Suggestions->save($suggestion)) {
-                $this->Flash->success(__('The suggestion has been saved.'));
+                $this->Flash->mens('Se agrego correctamente la sugerencia');
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The suggestion could not be saved. Please, try again.'));
+                $this->Flash->mens('No se agrego la sugerencia ocurrio un problema');
             }
         }
         $this->set(compact('suggestion'));
@@ -82,10 +86,10 @@ class SuggestionsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $suggestion = $this->Suggestions->patchEntity($suggestion, $this->request->data);
             if ($this->Suggestions->save($suggestion)) {
-                $this->Flash->success(__('The suggestion has been saved.'));
+                $this->Flash->mens('Se edito correctamente la sugerecia');
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The suggestion could not be saved. Please, try again.'));
+                $this->Flash->mens('No se pudo modificar la sugerencia');
             }
         }
         $this->set(compact('suggestion'));
@@ -104,9 +108,9 @@ class SuggestionsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $suggestion = $this->Suggestions->get($id);
         if ($this->Suggestions->delete($suggestion)) {
-            $this->Flash->success(__('The suggestion has been deleted.'));
+            $this->Flash->mens('Se elimino de forma correcta la sugerencia');
         } else {
-            $this->Flash->error(__('The suggestion could not be deleted. Please, try again.'));
+            $this->Flash->mens('No se pudo eliminar la Sugerecia');
         }
         return $this->redirect(['action' => 'index']);
     }
